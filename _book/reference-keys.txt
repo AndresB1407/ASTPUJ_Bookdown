@@ -1,0 +1,11 @@
+propuesta-de-estructura-de-datos-a-trabajar-en-el-curso
+dataset
+summary
+scatter-plott-de-la-serie-de-tiempo
+fuente
+análisis-gráfico-del-comportamiento-del-sp-500
+tratamiento-previo-del-dataset
+serie-de-tiempo-en-bruto
+estacionalidad-y-tratamiento
+aproximación-por-ma
+aproximación-por-rezagos

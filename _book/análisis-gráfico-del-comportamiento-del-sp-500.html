@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title> 2 Análisis gráfico del comportamiento del S&amp;P 500 | Análisis de Serie de Tiempo S&amp;P 500</title>
+  <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
+
+  <meta property="og:title" content=" 2 Análisis gráfico del comportamiento del S&amp;P 500 | Análisis de Serie de Tiempo S&amp;P 500" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content=" 2 Análisis gráfico del comportamiento del S&amp;P 500 | Análisis de Serie de Tiempo S&amp;P 500" />
+  
+  <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  
+
+<meta name="author" content="Jesús Andrés Burbano Gómez" />
+
+
+<meta name="date" content="2024-10-21" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Análisis de Serie de Tiempo S&P 500</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Propuesta de estructura de datos a trabajar en el curso</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#dataset"><i class="fa fa-check"></i><b>1.1</b> Dataset:</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#summary"><i class="fa fa-check"></i><b>1.2</b> Summary:</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#scatter-plott-de-la-serie-de-tiempo"><i class="fa fa-check"></i><b>1.3</b> Scatter plott de la serie de tiempo:</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#fuente"><i class="fa fa-check"></i><b>1.4</b> Fuente:</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="análisis-gráfico-del-comportamiento-del-sp-500.html"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html"><i class="fa fa-check"></i><b>2</b> Análisis gráfico del comportamiento del S&amp;P 500</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="análisis-gráfico-del-comportamiento-del-sp-500.html"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#tratamiento-previo-del-dataset"><i class="fa fa-check"></i><b>2.1</b> Tratamiento previo del dataset</a></li>
+<li class="chapter" data-level="2.2" data-path="análisis-gráfico-del-comportamiento-del-sp-500.html"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#serie-de-tiempo-en-bruto"><i class="fa fa-check"></i><b>2.2</b> Serie de tiempo en bruto</a></li>
+<li class="chapter" data-level="2.3" data-path="análisis-gráfico-del-comportamiento-del-sp-500.html"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#estacionalidad-y-tratamiento"><i class="fa fa-check"></i><b>2.3</b> Estacionalidad y tratamiento</a></li>
+<li class="chapter" data-level="2.4" data-path="análisis-gráfico-del-comportamiento-del-sp-500.html"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#aproximación-por-ma"><i class="fa fa-check"></i><b>2.4</b> Aproximación por MA</a></li>
+<li class="chapter" data-level="2.5" data-path="análisis-gráfico-del-comportamiento-del-sp-500.html"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#aproximación-por-rezagos"><i class="fa fa-check"></i><b>2.5</b> Aproximación por rezagos</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Análisis de Serie de Tiempo S&amp;P 500</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="análisis-gráfico-del-comportamiento-del-sp-500" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number"> 2</span> Análisis gráfico del comportamiento del S&amp;P 500<a href="análisis-gráfico-del-comportamiento-del-sp-500.html#análisis-gráfico-del-comportamiento-del-sp-500" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="tratamiento-previo-del-dataset" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Tratamiento previo del dataset<a href="análisis-gráfico-del-comportamiento-del-sp-500.html#tratamiento-previo-del-dataset" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Dada la base de datos escogida para las actividades del curso, se procede a realizar un análisis gráfico de los posibles patrones que pueda expresar esta serie de tiempo, particularmente, considerando los conceptos de aproximación a través de media móvil (MA), rezagos en la serie, y estacionalidad.</p>
+<p>Inicialmente, se procede con la consecusión del formato del dataset como serie de tiempo, empleando el paquete xts de R, el cual permite estructura el dataset en función de sus fechas, de tal forma que es posible tener en cuenta las brechas generadas por los fines de semana y holidays de esta serie de tiempo en días.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb7-1" tabindex="-1"></a><span class="co">#install.packages(&quot;xts&quot;)</span></span>
+<span id="cb7-2"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb7-2" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb7-3" tabindex="-1"></a><span class="co"># Example if the Date is in &#39;MM/DD/YYYY&#39; format</span></span>
+<span id="cb7-4"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb7-4" tabindex="-1"></a>spx_data<span class="sc">$</span>Date <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(spx_data<span class="sc">$</span>Date, <span class="at">format =</span> <span class="st">&quot;%m/%d/%Y&quot;</span>)</span>
+<span id="cb7-5"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb7-5" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb7-6" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb7-7" tabindex="-1"></a><span class="fu">library</span>(xts)</span>
+<span id="cb7-8"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb7-8" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb7-9" tabindex="-1"></a><span class="co"># Convert your data to an xts object</span></span>
+<span id="cb7-10"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb7-10" tabindex="-1"></a><span class="co"># Assuming `spx_data` has a column &#39;Date&#39; in Date format and &#39;Close/Last&#39; for prices.</span></span>
+<span id="cb7-11"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb7-11" tabindex="-1"></a>spx_Close_ts <span class="ot">&lt;-</span> <span class="fu">xts</span>(spx_data<span class="sc">$</span><span class="st">`</span><span class="at">Close/Last</span><span class="st">`</span>, <span class="at">order.by =</span> spx_data<span class="sc">$</span>Date)</span>
+<span id="cb7-12"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb7-12" tabindex="-1"></a></span>
+<span id="cb7-13"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb7-13" tabindex="-1"></a><span class="fu">head</span>(spx_Close_ts)</span></code></pre></div>
+<pre><code>##               [,1]
+## 2014-10-14 1877.70
+## 2014-10-15 1862.49
+## 2014-10-16 1862.76
+## 2014-10-17 1886.76
+## 2014-10-20 1904.01
+## 2014-10-21 1941.28</code></pre>
+</div>
+<div id="serie-de-tiempo-en-bruto" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Serie de tiempo en bruto<a href="análisis-gráfico-del-comportamiento-del-sp-500.html#serie-de-tiempo-en-bruto" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Así, es posible extraer el gráfico preliminar del comportamiento de la serie de tiempo. Nótese que se consideran las fechas desde el 14 de octubre de 2014 hasta el 11 de octubre de 2024.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb9-1" tabindex="-1"></a><span class="fu">plot</span>(spx_Close_ts, <span class="at">main =</span> <span class="st">&quot; &quot;</span>, <span class="at">ylab=</span><span class="st">&quot;S&amp;P500 Index&quot;</span>, <span class="at">col =</span> <span class="st">&quot;deepskyblue&quot;</span>, <span class="at">xlab=</span> <span class="st">&quot;Date&quot;</span>)</span>
+<span id="cb9-2"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb9-2" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb9-3" tabindex="-1"></a><span class="fu">title</span>(<span class="at">main=</span><span class="st">&quot;S&amp;P500 Index (Starting at October 14th of 2014)&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/ts%20graph%201%201-1.png" width="672" /></p>
+<p>El gráfico permite denotar una tendencia bastante obvia en cuanto al contexto de la serie de tiempo, ésta es la variación en la actividad del índice en función de la pandemia de 2020, denotada por una fuerte caída del precio del índice alrededor del inicio de 2020. Así, el análisis previo a realizar en este documento considerará un segmento de la serie de tiempo comprendido desde el primero de enero de 2020.</p>
+<p>Además, el gráfico de rezagos presentada debajo permite observar el grado de correlación entre las obervaciones diarias y el número de rezagos a evaluar (hasta 30 rezagos), dada la estructura del mercado bursátil inmersa en el comportamiento diario, es de esperarse una alta correlación entre la serie y sus rezagos, de tal manera que una alta correlación positiva puede denotarse incluso hasta el límite del conjunto de gráficos construidos, pues la tendencia de correlación lineal entre las observaciones puede identificarse claramente en todas las instancias, incluso a pesar de que sobre los últimos números de rezagos la tendencia lineal parece englobarse, mostrando signos de grados de aleatoriedad, esto se tendrá en cuenta al graficar la aproximación por rezagos de la serie más adelante.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb10-1" tabindex="-1"></a><span class="co"># Subset data for the date range</span></span>
+<span id="cb10-2"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb10-2" tabindex="-1"></a>spx_segment <span class="ot">&lt;-</span> spx_Close_ts[<span class="st">&quot;2020-01-01/2024-10-11&quot;</span>]</span>
+<span id="cb10-3"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb10-3" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb10-4" tabindex="-1"></a><span class="fu">lag.plot</span>(spx_segment, <span class="at">lags =</span> <span class="dv">30</span>, <span class="at">do.lines =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/lagplot1-1.png" width="672" /></p>
+</div>
+<div id="estacionalidad-y-tratamiento" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Estacionalidad y tratamiento<a href="análisis-gráfico-del-comportamiento-del-sp-500.html#estacionalidad-y-tratamiento" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Un análisis propicio de esta serie de tiempo también implica cónsiderar los posibles efectos estacionales que pueden subyacer en el comportamiento del índice. Así, se provee una aproximación desestacionalizada de la serie a través del método de diferenciación estacional.</p>
+<p>La aplicación de diferenciación estacional sustrae el valor del año anterior en la misma fecha para cada observación, de la siguiente manera:</p>
+<p><span class="math display">\[ Y^* = Y_t - Y_u  \]</span>
+Donde <span class="math inline">\(Y^*\)</span> es la serie de tiempo diferenciada estacionalmente, <span class="math inline">\(Y_t\)</span> es el valor del datapoint, y <span class="math inline">\(Y_u\)</span> es el valor correspondiente a la misma fecha del datapoint en el año inmediatamente anterior.</p>
+<p>Esta es una técnica ideal para el tratamiento de efectos estacionales en series de tiempo diarias, pues permite aislar el comportamiento desestacionalizado del índice de manera simple y sin el requerimiento de una alta cantidad de observaciones que puedan denotar periodos estadísticamente significativos (como es requerido en el caso de ejercicios de desestacionalización de series anuales).</p>
+<p>A continuación, se presenta el gráfico de comparación entre la serie diferenciada estacionalmente (color azul) y el gráfico del tramo de la serie original en el mismo intervalo de tiempo (color negro), de tal forma que es posible notar la diferencia en sus patrones de crecimiento. Claramente, la serie sin desestacionalizar denota un patrón de crecimiento más estable, en contraposición a los altibajos que presenta la serie desestacionalizada, de tal forma que es posible atribuir este crecimiento sostenido a los efectos estacionales.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb11-1" tabindex="-1"></a><span class="co"># Seasonal differencing </span></span>
+<span id="cb11-2"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb11-2" tabindex="-1"></a>seasonal_diff <span class="ot">&lt;-</span> <span class="fu">diff</span>(spx_segment, <span class="at">lag =</span> <span class="dv">365</span>)</span>
+<span id="cb11-3"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb11-3" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb11-4" tabindex="-1"></a><span class="co"># Check the result</span></span>
+<span id="cb11-5"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb11-5" tabindex="-1"></a><span class="co">#plot(seasonal_diff, main = &quot;S&amp;P 500 - Seasonally Differenced Time Series&quot;)</span></span>
+<span id="cb11-6"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb11-6" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb11-7" tabindex="-1"></a>spx_segment2 <span class="ot">&lt;-</span> spx_Close_ts[<span class="st">&quot;2023-01-01/2024-10-11&quot;</span>]</span>
+<span id="cb11-8"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb11-8" tabindex="-1"></a><span class="co">#plot(spx_segment2, main = &quot; &quot;, ylab=&quot;S&amp;P500 Index since 2021-01-01&quot;, col = &quot;deepskyblue&quot;, xlab= &quot;Date&quot;)</span></span>
+<span id="cb11-9"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb11-9" tabindex="-1"></a></span>
+<span id="cb11-10"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb11-10" tabindex="-1"></a><span class="co">#title(main=&quot;S&amp;P500 Index (Starting at January First of 2021)&quot;)</span></span>
+<span id="cb11-11"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb11-11" tabindex="-1"></a></span>
+<span id="cb11-12"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb11-12" tabindex="-1"></a></span>
+<span id="cb11-13"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb11-13" tabindex="-1"></a><span class="co"># Plot the original time series and the moving averages</span></span>
+<span id="cb11-14"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb11-14" tabindex="-1"></a><span class="fu">plot</span>(spx_segment2, </span>
+<span id="cb11-15"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb11-15" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;S&amp;P 500 Seasonally-Treated Series and Raw Series&quot;</span>, </span>
+<span id="cb11-16"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb11-16" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">&quot;black&quot;</span>, </span>
+<span id="cb11-17"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb11-17" tabindex="-1"></a>     <span class="at">lwd =</span> <span class="dv">1</span>, </span>
+<span id="cb11-18"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb11-18" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Date&quot;</span>, </span>
+<span id="cb11-19"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb11-19" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;Price&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/seasonality1-1.png" width="672" /></p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb12-1" tabindex="-1"></a><span class="fu">lines</span>(seasonal_diff, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
+<span id="cb12-2"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb12-2" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb12-3" tabindex="-1"></a><span class="co"># Adjust the legend position to &quot;topleft&quot; and include both MAs in the legend</span></span>
+<span id="cb12-4"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb12-4" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;topleft&quot;</span>, </span>
+<span id="cb12-5"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb12-5" tabindex="-1"></a>       <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">&quot;Original&quot;</span>, <span class="st">&quot;Seasonal Diff&quot;</span>),</span>
+<span id="cb12-6"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb12-6" tabindex="-1"></a>       <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;black&quot;</span>, <span class="st">&quot;blue&quot;</span>), </span>
+<span id="cb12-7"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb12-7" tabindex="-1"></a>       <span class="at">lwd =</span> <span class="dv">2</span>, </span>
+<span id="cb12-8"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb12-8" tabindex="-1"></a>       <span class="at">inset =</span> <span class="dv">1</span>,  <span class="co"># Adjust inset if needed to bring the legend inside the plot area</span></span>
+<span id="cb12-9"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb12-9" tabindex="-1"></a>       <span class="at">cex =</span> <span class="dv">5</span>)     <span class="co"># Adjust `cex` to change the size of the legend text</span></span></code></pre></div>
+<p><img src="_main_files/figure-html/seasonality1-2.png" width="672" /></p>
+<p>Ahora, teniendo en cuenta la serie desestacionalizada, es posible presentar sus aproximaciones por medio de media movil (MA) y rezagos.</p>
+</div>
+<div id="aproximación-por-ma" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> Aproximación por MA<a href="análisis-gráfico-del-comportamiento-del-sp-500.html#aproximación-por-ma" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Inicialmente, se presenta la sucesión de gráficos en los cuales se compara la evoluación de la serie desestacionalizada (en color negro) con sus aproximaciones por medio del cálculo de medias móviles a 10 días (color azul), y a 20 días (color rojo). Nótese cómo, a mayor cantidad de días considerados para la media móvil, se suaviza en mayor medida en comportamiento del índice.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb13-1" tabindex="-1"></a><span class="co">#install.packages(&quot;zoo&quot;)</span></span>
+<span id="cb13-2"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb13-2" tabindex="-1"></a><span class="co">#install.packages(&quot;TTR&quot;)</span></span>
+<span id="cb13-3"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb13-3" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb13-4" tabindex="-1"></a><span class="fu">library</span>(zoo)</span>
+<span id="cb13-5"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb13-5" tabindex="-1"></a><span class="fu">library</span>(TTR)</span>
+<span id="cb13-6"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb13-6" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb13-7" tabindex="-1"></a><span class="co"># Calculate a 10-day simple moving average</span></span>
+<span id="cb13-8"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb13-8" tabindex="-1"></a>spx_ma_10 <span class="ot">&lt;-</span> <span class="fu">rollmean</span>(seasonal_diff, <span class="at">k =</span> <span class="dv">10</span>, <span class="at">fill =</span> <span class="cn">NA</span>)</span>
+<span id="cb13-9"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb13-9" tabindex="-1"></a></span>
+<span id="cb13-10"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb13-10" tabindex="-1"></a><span class="co"># Alternatively, using TTR for a 20-day moving average</span></span>
+<span id="cb13-11"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb13-11" tabindex="-1"></a>spx_ma_20 <span class="ot">&lt;-</span> <span class="fu">SMA</span>(seasonal_diff, <span class="at">n =</span> <span class="dv">20</span>)</span>
+<span id="cb13-12"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb13-12" tabindex="-1"></a></span>
+<span id="cb13-13"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb13-13" tabindex="-1"></a><span class="co"># Plot the original time series and the moving averages</span></span>
+<span id="cb13-14"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb13-14" tabindex="-1"></a><span class="fu">plot</span>(seasonal_diff, </span>
+<span id="cb13-15"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb13-15" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;S&amp;P 500 Close Prices with Moving Averages&quot;</span>, </span>
+<span id="cb13-16"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb13-16" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">&quot;black&quot;</span>, </span>
+<span id="cb13-17"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb13-17" tabindex="-1"></a>     <span class="at">lwd =</span> <span class="dv">1</span>, </span>
+<span id="cb13-18"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb13-18" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Date&quot;</span>, </span>
+<span id="cb13-19"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb13-19" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;Price&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/MA1-1.png" width="672" /></p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb14-1" tabindex="-1"></a><span class="fu">lines</span>(spx_ma_10, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/MA1-2.png" width="672" /></p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb15-1" tabindex="-1"></a><span class="fu">lines</span>(spx_ma_20, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
+<span id="cb15-2"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb15-2" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb15-3" tabindex="-1"></a><span class="co"># Adjust the legend position to &quot;topleft&quot; and include both MAs in the legend</span></span>
+<span id="cb15-4"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb15-4" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;topleft&quot;</span>, </span>
+<span id="cb15-5"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb15-5" tabindex="-1"></a>       <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">&quot;Original&quot;</span>, <span class="st">&quot;10-day MA&quot;</span>, <span class="st">&quot;20-day MA&quot;</span>),</span>
+<span id="cb15-6"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb15-6" tabindex="-1"></a>       <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;black&quot;</span>, <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;red&quot;</span>), </span>
+<span id="cb15-7"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb15-7" tabindex="-1"></a>       <span class="at">lwd =</span> <span class="dv">2</span>, </span>
+<span id="cb15-8"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb15-8" tabindex="-1"></a>       <span class="at">inset =</span> <span class="dv">1</span>,  <span class="co"># Adjust inset if needed to bring the legend inside the plot area</span></span>
+<span id="cb15-9"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb15-9" tabindex="-1"></a>       <span class="at">cex =</span> <span class="dv">5</span>)     <span class="co"># Adjust `cex` to change the size of the legend text</span></span></code></pre></div>
+<p><img src="_main_files/figure-html/MA1-3.png" width="672" /></p>
+</div>
+<div id="aproximación-por-rezagos" class="section level2 hasAnchor" number="2.5">
+<h2><span class="header-section-number">2.5</span> Aproximación por rezagos<a href="análisis-gráfico-del-comportamiento-del-sp-500.html#aproximación-por-rezagos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Finalmente, se presenta en el mismo gráfico la serie desestacionalizada (color negro), en conjunto con su aproximación en función de 10 rezagos. Esta cantidad de rezagos se escoge en función de la observación del lag plot, pues, desde la observación informal, puede notarse que es hasta el rezago 10 donde se puede apreciar una relación lineal y directamente proporcional con mayor “pureza”, cabe recalcar que este criterio de selección carece de una verificación estadística con rigor, la cual puede alcanzarse al aplicar un modelo autoregresivo sobre la serie de tiempo, sin embargo, este ejercicio limita su alcance a la observación de las tendencias preliminares de manera gráfica, sin profundizar en modelos de ajuste y predicción.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb16-1" tabindex="-1"></a><span class="co"># Create a 1-day lag for the subset</span></span>
+<span id="cb16-2"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb16-2" tabindex="-1"></a>spx_lag_1_segment <span class="ot">&lt;-</span> <span class="fu">lag</span>(seasonal_diff, <span class="at">n=</span><span class="dv">10</span>)</span>
+<span id="cb16-3"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb16-3" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb16-4" tabindex="-1"></a><span class="co"># Plot the original segment and the lagged values</span></span>
+<span id="cb16-5"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb16-5" tabindex="-1"></a><span class="fu">plot</span>(seasonal_diff, <span class="at">main =</span> <span class="st">&quot;S&amp;P 500 Segment and 10-Day Lag&quot;</span>, <span class="at">col =</span> <span class="st">&quot;black&quot;</span>, <span class="at">lwd =</span> <span class="dv">1</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/lagged1-1.png" width="672" /></p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb17-1" tabindex="-1"></a><span class="fu">lines</span>(spx_lag_1_segment, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
+<span id="cb17-2"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb17-2" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;topright&quot;</span>, <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">&quot;Original&quot;</span>, <span class="st">&quot;7-day Lag&quot;</span>),</span>
+<span id="cb17-3"><a href="análisis-gráfico-del-comportamiento-del-sp-500.html#cb17-3" tabindex="-1"></a>       <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;black&quot;</span>, <span class="st">&quot;blue&quot;</span>), <span class="at">lwd =</span> <span class="dv">1</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/lagged1-2.png" width="672" /></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/index.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

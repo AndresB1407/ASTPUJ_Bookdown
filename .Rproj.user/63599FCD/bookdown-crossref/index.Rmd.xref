@@ -1,0 +1,14 @@
+h1:url-your-book-url-like-httpsbookdown.orgyihuibookdown url: your book url like https://bookdown.org/yihui/bookdown
+h1:cover-image-path-to-the-social-sharing-image-like-imagescover.jpg cover-image: path to the social sharing image like images/cover.jpg
+h1:propuesta-de-estructura-de-datos-a-trabajar-en-el-curso Propuesta de estructura de datos a trabajar en el curso
+h2:dataset Dataset:
+h2:summary Summary:
+h2:scatter-plott-de-la-serie-de-tiempo Scatter plott de la serie de tiempo:
+h2:fuente Fuente:
+h1:análisis-gráfico-del-comportamiento-del-sp-500 Análisis gráfico del comportamiento del S&P 500
+h2:tratamiento-previo-del-dataset Tratamiento previo del dataset
+h2:serie-de-tiempo-en-bruto Serie de tiempo en bruto
+h2:estacionalidad-y-tratamiento Estacionalidad y tratamiento
+h2:aproximación-por-ma Aproximación por MA
+h2:aproximación-por-rezagos Aproximación por rezagos
+
